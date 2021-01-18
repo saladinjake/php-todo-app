@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'todotask\\bingoproject\\' => array($baseDir . '/app'),
+    'todotask\\' => array($baseDir . '/app'),
 );

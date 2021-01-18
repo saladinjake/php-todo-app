@@ -2,35 +2,29 @@
     "name": "todo-task/bingo-project",
     "description": "My first packagist package",
     "type": "package",
-    "autoload": {
-        "files": [
-            "env.php",
-            "src/migrations.php",
-            "src/routes.php"
-        ],
-        "classmap": [
-            "src/"
-        ]
-    },
     "require": {
-      "php": ">=5.3.0",
-      "ext-pdo": "*",
-      "ext-json": "*",
-      "ext-gd": "*",
-      "ext-iconv": "*"
-    }
+        "php": ">=5.3.0"
+    },
+
     "license": "mit",
     "authors": [
         {
             "name": "saladin jake",
             "email": "juwavictor@gmail.com",
-            "homepage": "http://dontneedtoask.com"
+            "homepage": "http://dontneedtoask.com",
+            "role":"developer"
         }
     ],
+    "support": {
+        "email": "juwavictor@gmail.com",
+        "irc": "irc://irc.freenode.org/composer"
+    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "todotask\\bingoproject\\": "app/"
-        }
+            "todotask\\": "app/"
+        },
+        "classmap": ["app/"],
+        "files": ["env.php"]
     }
 }
