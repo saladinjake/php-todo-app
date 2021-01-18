@@ -9,12 +9,12 @@
 
 // If you don't to add a custom vendor folder, then use the simple class
 // namespace HelloComposer;
-namespace todotask\bingoproject;
+namespace todotask\bingoproject\controllers;
 
 class Todo
 {
-    public function say($toSay = "Nothing given")
+    public function run()
     {
-        return $toSay;
+        return 0;
     }
 }
