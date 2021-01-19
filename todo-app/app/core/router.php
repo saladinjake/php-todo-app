@@ -176,6 +176,11 @@ class Router{
         }
     }
 
+    public static function group($options=[], callback){
+      return callback()
+    }
+
+
 }
 
  ?>
