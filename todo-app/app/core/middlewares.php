@@ -10,7 +10,12 @@ class Middleware
      * @var array
      */
     private static $web_middlewares = [
-
+      'AuthController@logout' => 'WEBACCESSREQUIRED',
+      'TodoController@create' => 'WEBACCESSREQUIRED',
+      'TodoController@store' => 'WEBACCESSREQUIRED',
+      'TodoController@edit' => 'WEBACCESSREQUIRED',
+      'TodoController@update' => 'WEBACCESSREQUIRED',
+      'TodoController@delete' => 'WEBACCESSREQUIRED',
     ];
 
     /**
@@ -19,7 +24,10 @@ class Middleware
      * @var array
      */
     private static $api_middlewares = [
-
+      'TodoController@store' => 'APIACCESSREQUIRED',
+      'TodoController@update' => 'APIACCESSREQUIRED',
+      'TodoController@delete' => 'APIACCESSREQUIRED',
+      'AuthController@logout' => 'APIACCESSREQUIRED',
     ];
 
     /**
@@ -34,9 +42,9 @@ class Middleware
         $classMethod = str_replace('::', '@', $classMethod);
         if (strpos($classMethod, 'API\\') !== false) {
             $classMethod = str_replace('API\\', '', $classMethod);
-            if (array_key_exists($classMethod, self::$api_middlewares)) return self::{self::$APImiddlewares[$classMethod]}();
+            if (array_key_exists($classMethod, self::$api_middlewares)) return self::{self::$api_middlewares[$classMethod]}();
         } else {
-            if (array_key_exists($classMethod, self::$web_middlewares)) return self::{self::$WEBmiddlewares[$classMethod]}();
+            if (array_key_exists($classMethod, self::$web_middlewares)) return self::{self::$web_middlewares[$classMethod]}();
         }
     }
 

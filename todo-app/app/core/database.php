@@ -1,6 +1,19 @@
 <?php
 namespace App;
 
+// $instance = new mysqli( host , username , password, databasename )
+// $stmt = $instance->prepare('Select * from tableName');
+// $stmt->execute();
+// $stmt = $instance->prepare('
+// Insert into TableName
+//     (
+//     IntegerColumn ,
+//     StringColumn1 ,
+//     StringColumn2,
+//     DoubleColumn
+//     )
+// values( ?, ?, ?, ? )');
+// $stmt->bind_param("issd" , 1 , "Hello" , "World" , 12.34)
 class DatabaseClass{
 
     private $connection = null;

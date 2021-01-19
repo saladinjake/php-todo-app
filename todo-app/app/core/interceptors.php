@@ -15,16 +15,15 @@ class Interceptors{
     {
         if (isset($_COOKIE['loggedin'])) {
             $email = base64_decode($_COOKIE['loggedin']);
-            $user = Database::select("SELECT * FROM users WHERE email = ?",[$email]);
+            $user = Database::select("SELECT * FROM users WHERE email = ?",['s', $email]);
             if (!is_null($user['id'])) return $user;
         }
         return null;
     }
 
     /**
-     * Check access token from header
-     * Client should use this `Bearer qwaeszrdxtfcygvuhbijnokmpl0987654321` for Authorization in header
-     * That APP_SECRET can be set in ENV or generate after a login or ...
+     * detects token from header
+     *  something like this `Bearer alonggibbrishcodefor identificationofpayload` for Authorization in header
      *
      * @return void
      */
@@ -33,11 +32,9 @@ class Interceptors{
         $header = self::getAuthHeader();
         if (!empty($header)) {
             if (preg_match('/Bearer\s(\S+)/', $header, $matches)) {
-                $user = Database::select("SELECT * FROM users WHERE secret = ?", $matches[1]);
-
-
+                $user = Database::select("SELECT * FROM users WHERE secret = ?", ['s', $matches[1]]);
                 if (!is_null($user['id'])) {
-                    setcookie('loggedin', base64_encode(Database::fetch()['email']), time() + (86400 * COOKIE_DAYS));
+                    setcookie('loggedin', base64_encode($user['email']), time() + (86400 * COOKIE_DAYS));
                     return $user['id'];
                 }
             }

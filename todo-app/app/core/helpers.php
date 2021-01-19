@@ -5,20 +5,7 @@ namespace App;
 class Helper
 {
 
-    /**
-     * Load a view file like Home/home and assign data to it
-     *
-     * @param string $view
-     * @param array $data
-     * @return void
-     */
-    public static function render(string $view, array $data = [])
-    {
-        $file = APP_ROOT . '/app/views/' . $view . '.php';
 
-        if (is_readable($file)) require_once $file;
-        else die('404 Page not found');
-    }
 
     /**
      * Checks for Cross-site request forgery token
@@ -35,10 +22,6 @@ class Helper
         }
         return false;
     }
-
-
-
-
 
     /**
      * Send HTML Email
