@@ -6,5 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'todotask\\bingoproject\\controllers\\Todo' => $baseDir . '/app/controllers/todocontroller.php',
+    'App\\DatabaseClass' => $baseDir . '/app/core/database.php',
+    'App\\Helper' => $baseDir . '/app/core/helpers.php',
+    'App\\Interceptors' => $baseDir . '/app/core/interceptors.php',
+    'App\\Middleware' => $baseDir . '/app/core/middlewares.php',
+    'App\\Router' => $baseDir . '/app/core/router.php',
+    'App\\Todo' => $baseDir . '/app/controllers/todocontroller.php',
+    'App\\User' => $baseDir . '/app/core/user.php',
 );

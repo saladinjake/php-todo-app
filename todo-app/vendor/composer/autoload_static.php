@@ -25,7 +25,13 @@ class ComposerStaticInit093cd57df85e2afeda318bc287d2156c
     );
 
     public static $classMap = array (
-        'todotask\\bingoproject\\controllers\\Todo' => __DIR__ . '/../..' . '/app/controllers/todocontroller.php',
+        'App\\DatabaseClass' => __DIR__ . '/../..' . '/app/core/database.php',
+        'App\\Helper' => __DIR__ . '/../..' . '/app/core/helpers.php',
+        'App\\Interceptors' => __DIR__ . '/../..' . '/app/core/interceptors.php',
+        'App\\Middleware' => __DIR__ . '/../..' . '/app/core/middlewares.php',
+        'App\\Router' => __DIR__ . '/../..' . '/app/core/router.php',
+        'App\\Todo' => __DIR__ . '/../..' . '/app/controllers/todocontroller.php',
+        'App\\User' => __DIR__ . '/../..' . '/app/core/user.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

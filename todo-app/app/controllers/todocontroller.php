@@ -7,9 +7,8 @@
  * with this source code in the file LICENSE.
  */
 
-// If you don't to add a custom vendor folder, then use the simple class
-// namespace HelloComposer;
-namespace todotask\bingoproject\controllers;
+
+namespace App;
 
 class Todo
 {
