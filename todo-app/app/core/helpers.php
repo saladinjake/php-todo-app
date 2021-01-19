@@ -14,7 +14,7 @@ class Helper
      */
     public static function render(string $view, array $data = [])
     {
-        $file = APP_ROOT . '/src/Views/' . $view . '.php';
+        $file = APP_ROOT . '/app/views/' . $view . '.php';
 
         if (is_readable($file)) require_once $file;
         else die('404 Page not found');
